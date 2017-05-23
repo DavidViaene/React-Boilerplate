@@ -4,18 +4,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
+  template: './src/index.html',
   filename: 'index.html',
   inject: 'body',
 })
 
-const CSSExtract = new ExtractTextPlugin({ // define where to save the file
+const CSSExtract = new ExtractTextPlugin({
   filename: 'css/[name].css',
   allChunks: true,
 })
 
 module.exports = {
-  entry: './client/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve('dist'),
     filename: 'app.js',
