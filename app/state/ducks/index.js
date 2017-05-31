@@ -1,3 +1,1 @@
-import reducers from './App/reducers'
-
-export default reducers
+export { default as app } from './App'

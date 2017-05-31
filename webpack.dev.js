@@ -19,10 +19,11 @@ module.exports = {
       use: 'babel-loader',
       exclude: /node_modules/,
     }, {
-      test: /\.css$/,
+      test: /\.scss$/,
       loaders: [
         'style-loader',
-        'css-loader?modules=true',
+        'css-loader',
+        'sass-loader'
       ],
     }, {
       test: /\.svg$/,

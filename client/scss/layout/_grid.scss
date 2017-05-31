@@ -1,0 +1,122 @@
+@mixin grid($grid){
+
+  #{map-get($grid, grid)}{
+    @include container($grid);
+  }
+  #{map-get($grid, col)}{
+    @include col(1, $grid);
+  }
+
+  @if map-has-key($grid, viewports) {
+
+    //Loop viewports
+    @each $vp, $vpdata in map-get($grid, viewports) {
+      //Set media queries
+      @media #{$vp} {
+        #{map-get($grid, grid)}{
+          @include container($vpdata);
+        }
+        #{map-get($grid, col)}{
+          @include col(1, $vpdata);
+        }
+      }
+
+    }
+  }
+  @else {
+    @warn "Viewports not defined";
+  }
+
+
+
+}
+
+@mixin container($settings){
+  @if(map-get($settings, cols) > 1){
+    margin-left: -1 * (map-get($settings, gutter) / 2);
+    margin-right: -1 * (map-get($settings, gutter) / 2);
+  } @else {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@mixin col($span, $settings:(cols: 12, gutter: 0)){
+  @if($span > 0){
+    width: percentage($span / map-get($settings, cols));
+    float: left;
+    @if (map-get($settings, gutter) == 0) or (map-has-key($settings, gutter) != true) or (map-get($settings, gutter) == 0px) {
+      padding-left: 0;
+      padding-right: 0;
+
+    }
+    @else {
+      padding-left: (map-get($settings, gutter) / 2);
+      padding-right: (map-get($settings, gutter) / 2);
+    }
+
+  } @else {
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+    float: none;
+  }
+}
+
+@mixin nocol{
+  @include col(0);
+}
+
+@mixin nocontainer(){
+  @include container((cols:0));
+}
+
+
+/**
+ * EXAMPLE PREDEFINED MODULE GRID
+ */
+
+ //PRODUCT GRID
+ /*$grid : (
+   grid      : '.products__grid',
+   col       : '.products__col',
+   cols      : 4,
+   gutter    : 40px,
+   viewports : (
+     '(max-width: 1024px)'    : (cols: 2, gutter: 20px),
+     '(max-width: 767px)'     : (cols: 1)
+   )
+ );
+
+ @include grid($grid);
+
+ .product{
+   background: yellow;
+   text-align: center;
+   height: 300px;
+ }*/
+
+
+
+ /**
+  * CUSTOM GRID
+  */
+
+/*
+  $grid : (
+    cols      : 3,
+    gutter    : 40px
+  );
+
+  .container{
+    @include container($grid);
+  }
+
+  .sidebar{
+    @include col(1, $grid);
+  }
+
+  .content{
+    @include col(2, $grid);
+  }
+ */

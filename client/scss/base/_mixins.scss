@@ -1,0 +1,46 @@
+// -------------------------------------------------
+//
+// Handy mixins
+//
+//
+
+@mixin fontsmoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+@mixin abs($top:auto, $right:auto, $bottom: auto, $left: auto){
+	position: absolute; top:$top; right:$right; bottom:$bottom; left:$left;
+}
+
+@mixin pseudoline{
+	content:""; position: absolute; left:0; right:0; bottom:0; height:1px; display: block;
+}
+
+@mixin Opacity($value){
+    opacity: $value;
+    $IEValue: $value*100;
+    .no-opacity &{
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+    }
+}
+
+$font_size: 16;
+@function em($target, $context: $font_size) {
+  @return ($target / $context) * 1em;
+}
+
+@mixin font($family, $size, $line-height){
+    font-family: $family; font-size: em($size); line-height: em($line-height, $size);
+}
+
+@mixin content_nomargin{
+  *:first-child{margin-top: 0;}
+  *:last-child{margin-bottom: 0;}
+}

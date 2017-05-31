@@ -1,0 +1,20 @@
+.input__text{
+  display: block;
+  width: 100%;
+  border:none;
+  outline:none;
+  border:none;
+  line-height: normal;
+
+  -moz-appearance:textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+}
+
+.frm__row{
+  position: relative;
+}

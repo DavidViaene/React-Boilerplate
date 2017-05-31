@@ -1,0 +1,35 @@
+a,button{outline:none;}
+a{color:inherit;  text-decoration: none;}
+button{background:none; border:none;box-shadow: none;color:inherit;}
+
+.cover{background-size: cover; background-repeat: no-repeat; background-position: center center;}
+
+*{
+	box-sizing: border-box;
+}
+
+html,body{height: 100%;}
+
+body{
+	font-size: 1em;
+	@include fontsmoothing;
+
+	>svg{position: absolute; width: 0; height: 0;}
+}
+
+h1,.h1{
+
+}
+h2,.h2{
+
+}
+h3,.h3{
+
+}
+h4,.h4{
+
+}
+
+.center{
+  text-align: center;
+}
