@@ -40,6 +40,9 @@ module.exports = {
           ],
         }),
       ],
+    }, {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: 'file-loader?name=[name]-[hash].[ext]&outputPath=img/',
     }],
   },
   plugins: [HtmlWebpackPluginConfig],

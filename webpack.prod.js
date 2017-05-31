@@ -46,6 +46,21 @@ module.exports = {
           ],
         }),
       ],
+    }, {
+      test: /\.(png|svg|jpg|gif)$/,
+      loaders: [
+        'file-loader?name=[name]-[hash].[ext]&outputPath=img/',
+        {
+          loader: 'image-webpack-loader',
+          query: {
+            progressive: true,
+            pngquant: {
+              quality: '65-90',
+              speed: 4
+            }
+          }
+        }
+      ]
     }],
   },
   plugins: [
