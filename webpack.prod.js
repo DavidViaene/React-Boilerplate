@@ -47,7 +47,7 @@ module.exports = {
         }),
       ],
     }, {
-      test: /\.(png|svg|jpg|gif)$/,
+      test: /\.(png|jpg|gif)$/,
       loaders: [
         'file-loader?name=[name]-[hash].[ext]&outputPath=img/',
         {
