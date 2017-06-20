@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { AppActions } from './../../../state/ducks/App'
 
-const Hello = (props) => {
+const App = (props) => {
   const { name, actions } = props
 
   return (
@@ -13,7 +13,7 @@ const Hello = (props) => {
   )
 }
 
-Hello.propTypes = {
+App.propTypes = {
   name: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired,
 }
@@ -21,4 +21,4 @@ Hello.propTypes = {
 export default connect(
   state => ({ name: state.app.name }),
   dispatch => ({ actions: bindActionCreators(AppActions, dispatch) }),
-)(Hello)
+)(App)
