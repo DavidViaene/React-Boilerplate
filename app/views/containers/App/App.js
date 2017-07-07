@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { AppActions } from './../../../state/ducks/App'
 
 const App = (props) => {
-  const { name } = props
+  const { name, actions } = props
 
   return (
     <div>{ name }</div>

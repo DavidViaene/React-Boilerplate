@@ -1,3 +1,3 @@
-import Hello from './App'
+import App from './App'
 
-export default Hello
+export default App
