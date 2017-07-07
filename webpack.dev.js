@@ -20,6 +20,7 @@ module.exports = {
       exclude: /node_modules/,
     }, {
       test: /\.scss$/,
+      exclude: /node_modules/,
       loaders: [
         'style-loader',
         'css-loader',
