@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
 import Root from './../app/views/containers/Root'
-
 import configureStore from './../app/state/store'
 
 const store = configureStore({})
