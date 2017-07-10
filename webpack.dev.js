@@ -7,7 +7,7 @@ module.exports = {
     'react-hot-loader/patch',
     // activate HMR for React
 
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://localhost:5000',
     // bundle the client for webpack-dev-server
     // and connect to the provided endpoint
 
@@ -21,7 +21,7 @@ module.exports = {
 
   output: {
     path: path.resolve('dist'),
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://localhost:5000/',
     filename: 'js/app.js',
   },
 
@@ -98,9 +98,9 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     host: 'localhost',
-    port: 3000,
+    port: 5000,
 
-    /*headers: { "Access-Control-Allow-Origin": "*" },*/
+    headers: { "Access-Control-Allow-Origin": "*" },
 
     historyApiFallback: true,
     // respond to 404s with index.html

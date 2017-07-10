@@ -37,20 +37,17 @@ app.get('/', (req, res) => {
     })
     res.end()
   } else {
-    res.write(`
-      <!DOCTYPE html>
+    res.write(`<!DOCTYPE html>
       <html>
       <head>
           <meta charset="utf-8">
           <title>React App Setup</title>
       </head>
       <body>
-          <div id="root">
-            ${html}
-          </div>
+          <div id="root">${html}</div>
+          <script type="text/javascript" src="http://localhost:5000/js/app.js"></script>
       </body>
-      </html>
-    `)
+      </html>`)
     res.end()
   }
 })
