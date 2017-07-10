@@ -3,12 +3,14 @@
         "dev": "webpack-dev-server --env=dev --progress --profile --colors",
         "build": "webpack --env=prod --progress --profile --colors",
         "build:dev": "webpack --env=dev --progress --profile --colors",
-        "server": "nodemon --watch server server/index.js --exec babel-node"
+        "server:dev": "BABEL_ENV=server nodemon --watch server server/src/index.js --exec babel-node",
+        "server:build": "BABEL_ENV=server babel server/src --out-dir ./server/build"
     },
     "devDependencies": {
         "babel-cli": "^6.24.1",
         "babel-core": "^6.24.1",
         "babel-loader": "^7.0.0",
+        "babel-plugin-css-modules-transform": "^1.2.7",
         "babel-preset-latest": "^6.24.1",
         "babel-preset-react": "^6.24.1",
         "babel-preset-stage-2": "^6.24.1",

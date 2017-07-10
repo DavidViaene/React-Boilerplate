@@ -4,7 +4,8 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router'
 
-import App from './../app/views/components/App'
+import Root from './../../app/views/containers/Root'
+import configureStore from './../../app/state/store'
 
 const app = express()
 // Enable public assets
@@ -15,6 +16,9 @@ app.use(bodyParser.json())
 
 const server = require('http').Server(app)
 
+
+const store = configureStore({})
+
 app.get('/', (req, res) => {
   const context = {}
 
@@ -23,7 +27,7 @@ app.get('/', (req, res) => {
       location={req.url}
       context={context}
     >
-      <App />
+      <Root store={store} />
     </StaticRouter>,
   )
 
@@ -34,8 +38,18 @@ app.get('/', (req, res) => {
     res.end()
   } else {
     res.write(`
-      <!doctype html>
-      <div id="app">${html}</div>
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <meta charset="utf-8">
+          <title>React App Setup</title>
+      </head>
+      <body>
+          <div id="root">
+            ${html}
+          </div>
+      </body>
+      </html>
     `)
     res.end()
   }

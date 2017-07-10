@@ -3,8 +3,22 @@
     "latest",
     "stage-2",
     "react",
-  ],
-  "plugins": [
-    "react-hot-loader/babel",
-  ],
+  ],  
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
+    "server": {
+      "plugins": [
+        [
+          "css-modules-transform", {
+            "generateScopedName": "[hash:8]",
+            "extensions": [".css"]
+          }
+        ]
+      ]
+    }
+  }
 }
