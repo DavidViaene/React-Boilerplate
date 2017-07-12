@@ -47,10 +47,8 @@ app.get('/', (req, res) => {
           <title>React App Setup</title>
       </head>
       <body>
-          <div id="root">
-            ${html}
-          </div>
-          <script type="text/javascript" src="http://localhost:5000/js/app.js"></script>
+          <div id="root">${html}</div>
+          <script type="text/javascript" src="http://localhost:8080/js/app.js"></script>
       </body>
       </html>
     `)
