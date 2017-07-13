@@ -14,7 +14,7 @@ const config = {
   /** Output file name */
   outFilename: 'app',
   /** The base path for all projects assets (relative to the website root) */
-  publicPath: 'http://localhost:8080/',
+  publicPath: '/',
 }
 
 module.exports = config
